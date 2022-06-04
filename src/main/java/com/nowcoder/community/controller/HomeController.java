@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.swing.plaf.PanelUI;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -23,7 +25,7 @@ public class HomeController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/index")
+    @GetMapping(value = {"/index","/"})
     public String getIndexPage(Model model, Page page){
         page.setRows(discussPostService.findDiscussPostRows(0));
         page.setPath("/index");
