@@ -18,6 +18,7 @@ public class MailTests {
     @Autowired
     MailClient mailClient;
 
+
     @Test
     public void sendMailTest(){
         mailClient.sendMail("linfengssr@gmail.com","test","这是一封测试邮件");
