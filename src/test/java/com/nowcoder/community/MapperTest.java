@@ -1,7 +1,7 @@
 package com.nowcoder.community;
 
-
-import com.nowcoder.community.util.MailClient;
+import com.nowcoder.community.dao.CommentMapper;
+import com.nowcoder.community.entity.Comment;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,20 +9,20 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ContextConfiguration(classes = CommunityApplication.class)
+public class MapperTest {
 
-
-public class MailTests {
     @Autowired
-    MailClient mailClient;
-
+    CommentMapper commentDao;
 
     @Test
-    public void sendMailTest(){
-        mailClient.sendMail("linfengssr@gmail.com","test","这是一封测试邮件");
+    public void test () {
+        List<Comment> commentByEntity = commentDao.findCommentByEntity(1, 228, 1, 10);
+        System.out.println(commentByEntity);
     }
-
 
 }

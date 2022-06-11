@@ -24,6 +24,7 @@ class CommunityApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 	@Test
